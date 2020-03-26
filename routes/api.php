@@ -16,6 +16,11 @@ use Illuminate\Http\Request;
 Route::post('register', 'UserController@register');
 Route::post('login', 'UserController@login');
 
-Route::middleware(['jwt.verify'])->group(function() {
-    Route::get('user', 'UserController@getAuthenticatedUser');
+Route::group(['middleware'=> ['jwt.verify']], function() {
+    Route::get('login/check', "UserController@LoginCheck");
+    Route::post('logout', "UserController@logout");
+
+    //penawaran iklan
+    Route::get('iklan', "OfferController@index");
+    Route::post('iklan', "OfferController@store");
 });

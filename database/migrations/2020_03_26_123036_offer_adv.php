@@ -18,7 +18,7 @@ class OfferAdv extends Migration
             $table->string('judul',200);
             $table->string('deskripsi');
             $table->string('lokasi');
-            $table->integer('kontak');
+            $table->string('kontak');
             $table->double('harga');
             $table->string('gambar');
             $table->timestamps();

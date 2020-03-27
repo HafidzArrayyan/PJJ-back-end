@@ -22,5 +22,8 @@ Route::group(['middleware'=> ['jwt.verify']], function() {
 
     //penawaran iklan
     Route::get('iklan', "OfferController@index");
+    Route::get('iklan/{limit}/{offset}', "OfferController@getAll");
     Route::post('iklan', "OfferController@store");
+    Route::put('iklan/{id}', "OfferController@update");
+    Route::delete('iklan/{id}', "OfferController@delete");
 });
